@@ -13,7 +13,7 @@ export const Header = ({
   className,
   onClick,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
   onClick?: () => void;
 }) => {

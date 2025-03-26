@@ -1,4 +1,3 @@
-"use client";
 
 import { itemVariants } from "@/lib/animation-variant";
 import { motion } from "motion/react";

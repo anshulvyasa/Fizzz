@@ -8,7 +8,6 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import { motion } from "motion/react";
-import { Button } from "@/components/ui/button";
 import { containerVariants, itemVariants } from "@/lib/animation-variant";
 import { Header } from "./Header";
 import { ThemeButton } from "./ThemeButton";
@@ -19,7 +18,7 @@ export function AppBar() {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="flex items-center justify-between mt-4"
+      className="flex w-full items-center justify-between backdrop-blur-xs p-3 px-2 border-b  dark:border-zinc-800 "
     >
       <Header />
 
@@ -30,12 +29,12 @@ export function AppBar() {
         <ThemeButton />
         <SignedOut>
           <SignInButton>
-            <button className="border border-zinc-800 hover:bg-zinc-600/10 bg-zinc-900 cursor-pointer px-4 py-2 rounded-3xl">
+            <button className="border border-zinc-800/10 hover:bg-zinc-900/10 bg-zinc-600/10 cursor-pointer px-4 py-2 rounded-3xl text-gray-700 hover:text-black ">
               Sign In
             </button>
           </SignInButton>
           <SignUpButton>
-            <button className="border border-zinc-800 hover:bg-zinc-600/10 bg-zinc-900 cursor-pointer px-4 py-2 rounded-3xl">
+            <button className="border border-zinc-800/10 hover:bg-zinc-900/10 bg-zinc-600/10 cursor-pointer px-4 py-2 rounded-3xl  text-gray-700 hover:text-black">
               Sign Up
             </button>
           </SignUpButton>

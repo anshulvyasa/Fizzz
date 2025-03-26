@@ -1,5 +1,3 @@
-"use client";
-
 import { SunDim, Moon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
@@ -38,7 +36,7 @@ export const ThemeButton=()=>{
     if(!mounted) return null;
     
     return(
-        <div className="flex items-center justify-center gap-2 bg-zinc-100 dark:bg-zinc-900 cursor-pointer rounded-3xl border hover:border-teal-800">
+        <div className="flex items-center justify-center gap-2 bg-zinc-100 dark:bg-zinc-900 cursor-pointer rounded-3xl border hover:border-gray-400">
              <div className={cn("flex h-fit w-15 dark:justify-end justify-start")}>
                 <motion.div layout transition={{type:"spring", stiffness: 0.2, bounce:0.2}}>
                     <OuterLayer className="hidden dark:flex" onClick={() => setTheme("light")}>

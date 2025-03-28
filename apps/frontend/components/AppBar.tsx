@@ -18,7 +18,7 @@ export function AppBar() {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="flex w-full items-center justify-between backdrop-blur-xs p-3 px-2 border-b  dark:border-zinc-800 "
+      className="flex w-full h-14 items-center justify-between bg-transparent backdrop-blur-xs p-3 px-2 border-b border-gray-400  dark:border-zinc-800 "
     >
       <Header />
 
@@ -29,12 +29,12 @@ export function AppBar() {
         <ThemeButton />
         <SignedOut>
           <SignInButton>
-            <button className="border border-zinc-800/10 hover:bg-zinc-900/10 bg-zinc-600/10 cursor-pointer px-4 py-2 rounded-3xl text-gray-700 hover:text-black ">
+            <button className="border border-zinc-800/10 hover:bg-zinc-900/10 bg-zinc-600/10 cursor-pointer px-4 py-2 rounded-3xl text-gray-700 hover:text-black dark:text-white/80 ">
               Sign In
             </button>
           </SignInButton>
           <SignUpButton>
-            <button className="border border-zinc-800/10 hover:bg-zinc-900/10 bg-zinc-600/10 cursor-pointer px-4 py-2 rounded-3xl  text-gray-700 hover:text-black">
+            <button className="border border-zinc-800/10 hover:bg-zinc-900/10 bg-zinc-600/10 cursor-pointer px-4 py-2 rounded-3xl  text-gray-700 hover:text-black dark:text-white/80">
               Sign Up
             </button>
           </SignUpButton>

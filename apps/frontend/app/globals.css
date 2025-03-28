@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-@plugin "tailwindcss-animate";
+/* what is the use case of plugings */
+@plugin "tailwindcss-animate";   
 
 @custom-variant dark (&:is(.dark *));
 
@@ -114,15 +115,23 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+  :root {
+    --background: white;
+    --background-gradient: radial-gradient(125% 125% at 50% 10%, #fff 40%, #63e 100%);
   }
+
+  .dark {
+    --background: black;
+    --background-gradient: radial-gradient(#ffffff33 1px, #00091d 1px);
+    --background-size: 20px 20px;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    background: var(--background) var(--background-gradient);
+    background-size: var(--background-size, cover); 
+    background-attachment: fixed; 
   }
 }
-
-
 @layer base {
   :root {
     --sidebar-background: 0 0% 98%;
@@ -146,4 +155,3 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
-

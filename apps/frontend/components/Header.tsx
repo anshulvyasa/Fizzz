@@ -1,4 +1,3 @@
-
 import { itemVariants } from "@/lib/animation-variant";
 import { motion } from "motion/react";
 import { SidebarTrigger } from "@/components/ui/sidebar";
@@ -6,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@clerk/nextjs";
+import { Logo } from "./Logo";
 
 export const Header = ({
   children,
@@ -16,17 +17,19 @@ export const Header = ({
   className?: string;
   onClick?: () => void;
 }) => {
+  const { isSignedIn } = useAuth();
+
   return (
-    <motion.div
-      variants={itemVariants}
-      className="flex items-center gap-2 bg-zinc-100 border dark:border-zinc-800 dark:hover:bg-zinc-600/10 dark:bg-zinc-900 px-4 py-2 rounded-3xl"
-    >
-      <SidebarTrigger
-        variant="link"
-        className="[&_svg:not([class*='size-'])]:size-5 cursor-pointer"
-      />
+    <motion.div variants={itemVariants} className="flex items-center gap-2">
+      {isSignedIn && (
+        <SidebarTrigger
+          variant="link"
+          className="[&_svg:not([class*='size-'])]:size-5 cursor-pointer"
+        />
+      )}
+      <span className="font-bold tracking-wider text-2xl sm:text-3xl ">Fizz</span>
       <Link href="/">
-        <Image src="/logo.svg" alt="logo" width={25} height={25} />
+        <Image src={'/logo.svg'} alt="Logo" height={25} width={25}/>
       </Link>
 
       {children && (

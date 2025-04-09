@@ -1,3 +1,5 @@
+"use client";
+
 import { useAuth } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -7,7 +9,7 @@ import { Button } from "./ui/button";
 import axios from "axios";
 import { BackEnd_URL } from "@/config";
 import { Textarea } from "./ui/textarea";
-import { ChevronRight, MoveUpRight } from "lucide-react";
+import { ChevronRight, Lightbulb, MoveUpRight } from "lucide-react";
 import { prompts } from "@/lib/constants";
 import {
   AlertDialog,
@@ -19,6 +21,16 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "./ui/alert-dialog";
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export function Prompts() {
   const [isNotSignedIn, setIsNotSignedIn] = useState<boolean>(false);
@@ -110,17 +122,45 @@ export function Prompts() {
         </motion.form>
       </div>
 
-      <motion.div variants={itemVariants}>
+      <div className=" w-10 h-10 rounded-full absolute left-2 sm:static dark:bg-transparent backdrop-blur-2xl border border-gray-500 dark:text-white flex items-center justify-center">
+        <DropdownMenu>
+          <DropdownMenuTrigger className=" bg-transparent">
+            <Lightbulb />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className=" bg-transparent backdrop-blur-lg sm:absolute left-0  sm:max-w-[60vw] border border-white overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <DropdownMenuLabel>Try To</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuGroup className="min-w-[70vw] max-w-[80vw] ">
+              <motion.div variants={itemVariants} className="w-full">
+                {prompts.map((prompt) => (
+                  <div
+                    key={prompt.id}
+                    onClick={() => setPrompt(prompt.title)}
+                    className=" cursor-pointer px-4 py-2"
+                  >
+                    <DropdownMenuItem>{prompt.title}</DropdownMenuItem>
+                  </div>
+                ))}
+              </motion.div>
+            </DropdownMenuGroup>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+
+      {/* <motion.div
+        variants={itemVariants}
+        className="min-w-[70vw] max-w-[80vw] hidden sm:block"
+      >
         {prompts.map((prompt) => (
           <div
             key={prompt.id}
             onClick={() => setPrompt(prompt.title)}
-            className="border dark:border-zinc-800 hover:bg-zinc-600/10 dark:bg-zinc-900 cursor-pointer px-4 py-2 rounded-xl"
+            className="border  cursor-pointer px-4 py-2 rounded-xl "
           >
             <p className="text-gray-400/80 text-sm">{prompt.title}</p>
           </div>
         ))}
-      </motion.div>
+      </motion.div> */}
 
       <AlertDialog open={isNotSignedIn} onOpenChange={setIsNotSignedIn}>
         <AlertDialogContent>

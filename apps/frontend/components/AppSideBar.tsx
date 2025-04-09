@@ -51,7 +51,7 @@ function useProjects() {
           (acc: { [date: string]: Project[] }, project: Project) => {
             const dateKey = new Date(project.createdAt)
               .toISOString()
-              .split("T")[0]; // Use ISO format
+              .split("T")[0];
             acc[dateKey] = acc[dateKey] || [];
             acc[dateKey].push(project);
             return acc;
@@ -81,7 +81,10 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
   const projects = useProjects();
 
   return (
-    <Sidebar {...props}>
+    <Sidebar
+      {...props}
+      className="[&>div]:!bg-transparent backdrop-blur-lg bg-white/30 dark:bg-black/20"
+    >
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>

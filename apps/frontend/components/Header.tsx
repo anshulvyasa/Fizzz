@@ -6,7 +6,6 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@clerk/nextjs";
-import { Logo } from "./Logo";
 
 export const Header = ({
   children,
@@ -27,9 +26,11 @@ export const Header = ({
           className="[&_svg:not([class*='size-'])]:size-5 cursor-pointer"
         />
       )}
-      <span className="font-bold tracking-wider text-2xl sm:text-3xl ">Fizz</span>
+      <span className="font-bold tracking-wider text-2xl sm:text-3xl ">
+        Fizz
+      </span>
       <Link href="/">
-        <Image src={'/logo.svg'} alt="Logo" height={25} width={25}/>
+        <Image src={"/logo.svg"} alt="Logo" height={25} width={25} />
       </Link>
 
       {children && (

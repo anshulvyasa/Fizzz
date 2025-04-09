@@ -7,12 +7,15 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
-import { motion } from "motion/react";
+import { color, motion } from "motion/react";
 import { containerVariants, itemVariants } from "@/lib/animation-variant";
 import { Header } from "./Header";
 import { ThemeButton } from "./ThemeButton";
+import { useTheme } from "next-themes";
 
 export function AppBar() {
+  const { theme } = useTheme();
+
   return (
     <motion.div
       variants={containerVariants}
@@ -41,7 +44,38 @@ export function AppBar() {
         </SignedOut>
 
         <SignedIn>
-          <UserButton />
+          <UserButton
+            appearance={{
+              elements: {
+                userButtonPopoverMain: {
+                  backdropFilter: "blur(10px)",
+                  WebkitBackdropFilter: "blur(10px)",
+                  backgroundColor:
+                    theme === "dark"
+                      ? "rgba(18, 24, 38, 0.85)" // Dark Mode: Deep Bluish Background
+                      : "rgba(255, 255, 255, 0.9)", // Light Mode: Soft White
+                  color: theme === "dark" ? "#E0E7FF" : "#333",
+                  fontWeight: "bolder",
+                  borderRadius: "12px",
+                  padding: "12px",
+                  border:
+                    theme === "dark"
+                      ? "1.5px solid rgba(144, 158, 255, 0.25)"
+                      : "1.5px solid rgba(200, 200, 200, 0.5)",
+                  boxShadow:
+                    theme === "dark"
+                      ? "0 0 10px rgba(120, 130, 200, 0.15)"
+                      : "0 4px 10px rgba(0, 0, 0, 0.08)",
+                },
+                userButtonPopoverActionButton: {
+                  color: theme === "dark" ? "#C3BFF2" : "#4A4A4A",
+                  transition: "all 0.3s ease-in-out",
+                  borderRadius: "8px",
+                  padding: "8px 14px",
+                },
+              },
+            }}
+          />
         </SignedIn>
       </motion.div>
     </motion.div>

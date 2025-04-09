@@ -1,0 +1,14 @@
+/* Clerk User Button */
+.clerk-user-button {
+  background-color: transparent !important;
+  backdrop-filter: blur(12px);
+  border-radius: 0.75rem;
+}
+
+/* Clerk User Button Popover */
+.clerk-user-button-popover-card {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}

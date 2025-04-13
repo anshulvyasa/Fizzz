@@ -52,8 +52,8 @@ export function AppBar() {
                   WebkitBackdropFilter: "blur(10px)",
                   backgroundColor:
                     theme === "dark"
-                      ? "rgba(18, 24, 38, 0.85)" // Dark Mode: Deep Bluish Background
-                      : "rgba(255, 255, 255, 0.9)", // Light Mode: Soft White
+                      ? "rgba(18, 24, 38, 0.85)"
+                      : "rgba(255, 255, 255, 0.9)",
                   color: theme === "dark" ? "#E0E7FF" : "#333",
                   fontWeight: "bolder",
                   borderRadius: "12px",
@@ -72,6 +72,11 @@ export function AppBar() {
                   transition: "all 0.3s ease-in-out",
                   borderRadius: "8px",
                   padding: "8px 14px",
+                },
+                userButtonPopoverFooter: {
+                  backgroundColor: "yellow !important",
+                  height: "50px",
+                  backdropFilter: "blur(10px)",
                 },
               },
             }}

@@ -51,7 +51,7 @@ export function Prompts() {
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const token = getToken();
+    const token =await getToken();
     if (!token) {
       setIsNotSignedIn(true);
     }

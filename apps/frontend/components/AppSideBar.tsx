@@ -84,6 +84,7 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
     <Sidebar
       {...props}
       className="[&>div]:!bg-transparent backdrop-blur-lg bg-white/30 dark:bg-black/20"
+
     >
       <SidebarHeader>
         <SidebarMenu>

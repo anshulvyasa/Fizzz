@@ -163,3 +163,19 @@
 
 
 
+.dark .cl-scrollBox {
+  @apply bg-transparent backdrop-blur-2xl text-white;
+}
+
+.dark .cl-scrollBox * {
+  @apply text-white;
+}
+
+.dark .cl-actionCard{
+   @apply bg-transparent backdrop-blur-2xl 
+}
+
+
+.dark .cl-formFieldInput{
+  @apply bg-white/10 rounded-2xl
+}
